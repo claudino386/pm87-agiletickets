@@ -5,7 +5,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 public abstract class Repository<T, I extends Serializable> {
 	
@@ -38,9 +38,9 @@ public abstract class Repository<T, I extends Serializable> {
 	}
 	
 	public List<T> findAll() {
-		Query query = entityManager.createQuery("from " + clazz.getName());
+		TypedQuery<T> query = entityManager.createQuery("from " + clazz.getName(), clazz);
 
-		@SuppressWarnings("unchecked")
+
 		List<T> resultList = query.getResultList();
 
 		return resultList;
