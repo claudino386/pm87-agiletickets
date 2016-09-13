@@ -12,10 +12,6 @@ public class JPAEstabelecimentoDao implements DiretorioDeEstabelecimentos {
 
 	private EntityManager manager;
 	
-	/** @deprecated CDI eyes only*/
-	protected JPAEstabelecimentoDao() {
-	}
-	
 	@Inject
 	public JPAEstabelecimentoDao(EntityManager manager) {
 		this.manager = manager;
